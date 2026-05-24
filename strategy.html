@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賽事補給攻略 - 有意思補給站</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+.race-tabs{display:flex;gap:0;margin-bottom:40px;border:1.5px solid var(--border);width:fit-content;overflow:hidden;flex-wrap:wrap;}
+.rt{padding:13px 32px;font-size:14px;font-weight:600;border:none;background:none;cursor:pointer;font-family:'Noto Sans TC',sans-serif;color:var(--muted);transition:all .2s;border-right:1px solid var(--border);}
+.rt:last-child{border-right:none;}
+.rt.active{background:var(--gold);color:#fff;}
+.race-plan{display:none;}
+.race-plan.active{display:block;}
+.rp-intro{background:rgba(200,168,75,0.08);border-left:3px solid var(--gold);padding:16px 20px;font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:32px;}
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.stage-card{background:#fff;border:1px solid var(--border);padding:24px;}
+.stage-time{font-size:10px;letter-spacing:0.2em;color:var(--gold-dark);text-transform:uppercase;margin-bottom:8px;}
+.stage-title{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;margin-bottom:12px;}
+.stage-items{list-style:none;}
+.stage-items li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;line-height:1.5;}
+.stage-items li::before{content:'·';color:var(--gold);font-weight:900;flex-shrink:0;}
+.prod-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.prod-tag{font-size:10px;padding:3px 8px;background:rgba(200,168,75,0.1);color:var(--gold-dark);border:1px solid rgba(200,168,75,0.25);}
+@media(max-width:900px){
+  .stages{grid-template-columns:1fr;}
+  .race-tabs{width:100%;}
+  .rt{padding:12px 16px;font-size:13px;flex:1;text-align:center;}
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">有意思補給站 <span>JOYCE SUPPLY</span></a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="products.html">補給品目錄</a></li>
+    <li><a href="strategy.html" class="active">賽事攻略</a></li>
+    <li><a href="mylog.html">我的紀錄</a></li>
+    <li><a href="order.html" class="nav-cta">立即訂購</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="tag">◆ 賽事補給攻略</div>
+  <h1>不同距離的補給策略</h1>
+  <p>10K / 半馬 / 全馬，選對補給才能跑出好成績</p>
+</div>
+
+<section>
+  <div class="race-tabs">
+    <button class="rt active" onclick="switchRace('10k',this)">🏃 10K</button>
+    <button class="rt" onclick="switchRace('half',this)">🏅 半馬 21K</button>
+    <button class="rt" onclick="switchRace('full',this)">🏆 全馬 42K</button>
+  </div>
+
+  <!-- 10K -->
+  <div id="race-10k" class="race-plan active">
+    <div class="rp-intro">10K 介於速度與耐力之間，比賽時間約 40–70 分鐘。重點放在賽前準備，比賽中視需要補給即可。</div>
+    <div class="stages">
+      <div class="stage-card">
+        <div class="stage-time">賽前 2–3 小時</div>
+        <div class="stage-title">🌅 碳水正餐</div>
+        <ul class="stage-items">
+          <li>白飯、白吐司、地瓜（好消化）</li>
+          <li>避免高纖、高脂、高蛋白食物</li>
+          <li>補充足夠水分 400–600ml</li>
+        </ul>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">賽前 45–60 分</div>
+        <div class="stage-title">☕ 提升表現</div>
+        <ul class="stage-items">
+          <li>咖啡因補充提升速度與專注力</li>
+          <li>UP O2 膠囊提升氧氣利用率</li>
+          <li>少量電解質水暖身</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">綠茶咖啡因膠囊(L)</span>
+          <span class="prod-tag">雙速咖啡因錠</span>
+          <span class="prod-tag">UP O2膠囊(I)</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">比賽中</div>
+        <div class="stage-title">🏃 視需要補充</div>
+        <ul class="stage-items">
+          <li>水站補水即可，不強制補給</li>
+          <li>若感覺疲累可補能量軟糖</li>
+          <li>有電解質飲站可小口補充</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">FOCHEWS能量軟糖</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">完賽後 30 分內 ⭐</div>
+        <div class="stage-title">✅ 黃金恢復</div>
+        <ul class="stage-items">
+          <li>乳清蛋白 20g 修復肌肉</li>
+          <li>電解質飲補充礦物質</li>
+          <li>酸櫻桃機能飲減少發炎</li>
+          <li>環原力酵素莓果C 抗氧化</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">乳清蛋白</span>
+          <span class="prod-tag">電解質飲A/B/C</span>
+          <span class="prod-tag">酸櫻桃機能飲</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 半馬 -->
+  <div id="race-half" class="race-plan">
+    <div class="rp-intro">半馬（21K）預計 90–150 分鐘，需要完整補給計劃！建議每 45–60 分鐘補充能量，並全程維持電解質。</div>
+    <div class="stages">
+      <div class="stage-card">
+        <div class="stage-time">賽前一天晚上</div>
+        <div class="stage-title">🌙 碳水儲備</div>
+        <ul class="stage-items">
+          <li>晚餐多吃碳水（碳水裝載）</li>
+          <li>睡前補充牛磺酸鎂膠囊預防抽筋</li>
+          <li>充足睡眠，避免熬夜</li>
+        </ul>
+        <div class="prod-tags"><span class="prod-tag">牛磺酸鎂膠囊</span></div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">賽前 2–3 小時</div>
+        <div class="stage-title">🌅 賽前正餐</div>
+        <ul class="stage-items">
+          <li>白飯或麵包（150–200g 碳水）</li>
+          <li>少量蛋白質（蛋、豆腐）</li>
+          <li>電解質水 500ml</li>
+        </ul>
+        <div class="prod-tags"><span class="prod-tag">電解質飲A/B/C</span></div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">賽前 45–60 分</div>
+        <div class="stage-title">☕ 啟動補給</div>
+        <ul class="stage-items">
+          <li>咖啡因膠囊提升表現</li>
+          <li>UP O2 膠囊提升氧氣利用</li>
+          <li>能量膠 1 包（視習慣）</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">綠茶咖啡因膠囊</span>
+          <span class="prod-tag">UP O2膠囊</span>
+          <span class="prod-tag">太空能量膠</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">比賽中 第 45–60 分</div>
+        <div class="stage-title">⚡ 第一次補給</div>
+        <ul class="stage-items">
+          <li>能量膠 1 包 + 水 150–200ml</li>
+          <li>電解質膠囊 1 顆</li>
+          <li>搭配水站水服用</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">太空能量膠MAX</span>
+          <span class="prod-tag">Ultra能量膠</span>
+          <span class="prod-tag">電解質膠囊</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">比賽中 第 90 分（視需要）</div>
+        <div class="stage-title">⚡ 第二次補給</div>
+        <ul class="stage-items">
+          <li>能量軟糖或能量膠</li>
+          <li>持續補充電解質水</li>
+          <li>注意身體感受</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">FOCHEWS能量軟糖</span>
+          <span class="prod-tag">洛神烏梅(P)</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">完賽後 30 分內 ⭐</div>
+        <div class="stage-title">✅ 黃金恢復</div>
+        <ul class="stage-items">
+          <li>乳清蛋白 25–30g</li>
+          <li>電解質飲大量補充</li>
+          <li>酸櫻桃機能飲消炎恢復</li>
+          <li>環原力酵素莓果C</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">乳清蛋白</span>
+          <span class="prod-tag">酸櫻桃機能飲</span>
+          <span class="prod-tag">環原力酵素莓果C</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全馬 -->
+  <div id="race-full" class="race-plan">
+    <div class="rp-intro">全馬（42K）補給策略至關重要！3–5 小時的賽程，每 45 分鐘定時補給能量，全程維持電解質，才能避免撞牆！</div>
+    <div class="stages">
+      <div class="stage-card">
+        <div class="stage-time">賽前 2–3 天</div>
+        <div class="stage-title">📅 碳水裝載期</div>
+        <ul class="stage-items">
+          <li>增加碳水攝取至 60–70%</li>
+          <li>白飯、義大利麵、地瓜</li>
+          <li>減少高纖蔬菜避免腸胃不適</li>
+          <li>每天補充電解質</li>
+        </ul>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">賽前 2–3 小時</div>
+        <div class="stage-title">🌅 賽前正餐</div>
+        <ul class="stage-items">
+          <li>白飯/白吐司（200g 碳水）</li>
+          <li>電解質水 500–700ml</li>
+          <li>牛磺酸鎂膠囊預防抽筋</li>
+        </ul>
+        <div class="prod-tags"><span class="prod-tag">牛磺酸鎂膠囊</span><span class="prod-tag">電解質飲</span></div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">賽前 45–60 分</div>
+        <div class="stage-title">☕ 啟動補給</div>
+        <ul class="stage-items">
+          <li>咖啡因膠囊 + UP O2 膠囊</li>
+          <li>能量膠 1 包（提前開始補充）</li>
+          <li>電解質水暖身</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">雙速咖啡因錠</span>
+          <span class="prod-tag">UP O2膠囊</span>
+          <span class="prod-tag">太空能量膠MAX</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">比賽中 每 45 分鐘</div>
+        <div class="stage-title">⚡ 定時補給（4–6 次）</div>
+        <ul class="stage-items">
+          <li>能量膠 1 包 + 水 150–200ml</li>
+          <li>電解質膠囊每 60 分鐘 1 顆</li>
+          <li>交替不同口味避免厭膩</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">太空能量膠MAX</span>
+          <span class="prod-tag">Ultra能量膠</span>
+          <span class="prod-tag">能量果膠PRO</span>
+          <span class="prod-tag">電解質膠囊</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">30K 後（撞牆期預防）</div>
+        <div class="stage-title">🦵 額外能量衝刺</div>
+        <ul class="stage-items">
+          <li>耐力甜膠囊維持肌肉持久力</li>
+          <li>FOCHEWS 能量軟糖快速補糖</li>
+          <li>力捷凍（若有攜帶）</li>
+          <li>洛神烏梅高電解質補充</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">耐力甜膠囊</span>
+          <span class="prod-tag">FOCHEWS能量軟糖</span>
+          <span class="prod-tag">力捷凍</span>
+          <span class="prod-tag">洛神烏梅(P)</span>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">完賽後 30 分內 ⭐</div>
+        <div class="stage-title">✅ 全面恢復</div>
+        <ul class="stage-items">
+          <li>乳清蛋白 30–40g</li>
+          <li>電解質飲大量補充</li>
+          <li>酸櫻桃機能飲消炎</li>
+          <li>環原力酵素莓果C 抗氧化</li>
+          <li>預約運動按摩加速恢復</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">乳清蛋白</span>
+          <span class="prod-tag">酸櫻桃機能飲</span>
+          <span class="prod-tag">環原力酵素莓果C</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:48px;padding:40px;background:var(--dark);">
+    <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;color:#fff;margin-bottom:12px;">準備好你的補給了嗎？</h2>
+    <p style="color:rgba(255,255,255,0.5);margin-bottom:24px;font-size:14px;">看完攻略，直接訂購你需要的補給品 🧡</p>
+    <a href="order.html" class="btn btn-gold btn-lg">立即訂購</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">有意思補給站</div>
+    <div class="footer-links">
+      <a href="index.html">首頁</a>
+      <a href="products.html">補給品目錄</a>
+      <a href="strategy.html">賽事攻略</a>
+      <a href="mylog.html">我的紀錄</a>
+      <a href="order.html">立即訂購</a>
+    </div>
+    <div class="footer-copy">© 2025 有意思補給站. All rights reserved.</div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+function switchRace(race, btn) {
+  document.querySelectorAll('.rt').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.race-plan').forEach(p => p.classList.remove('active'));
+  document.getElementById('race-' + race).classList.add('active');
+}
+</script>
+</body>
+</html>

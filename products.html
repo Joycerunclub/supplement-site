@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>補給品目錄 - 有意思補給站</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.product-card{background:#fff;border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;overflow:hidden;}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.08);}
+.pc-bar{height:4px;}
+.cat-energy .pc-bar{background:#c8a84b;}
+.cat-electrolyte .pc-bar{background:#4a90d9;}
+.cat-drink .pc-bar{background:#7cb87c;}
+.cat-capsule .pc-bar{background:#b85c38;}
+.cat-health .pc-bar{background:#9b59b6;}
+.cat-other .pc-bar{background:#95a5a6;}
+.pc-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+.pc-icon{font-size:28px;margin-bottom:8px;}
+.pc-name{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;line-height:1.4;margin-bottom:4px;}
+.pc-desc{font-size:11px;color:var(--muted);margin-bottom:10px;}
+.timing-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;}
+.tt{font-size:10px;padding:2px 7px;border-radius:1px;border:1px solid;}
+.tt-b{background:rgba(200,168,75,0.1);color:#8b6f20;border-color:rgba(200,168,75,0.3);}
+.tt-d{background:rgba(45,106,45,0.1);color:#2d6a2d;border-color:rgba(45,106,45,0.3);}
+.tt-a{background:rgba(184,92,56,0.1);color:#b85c38;border-color:rgba(184,92,56,0.3);}
+.tt-x{background:rgba(107,107,107,0.1);color:#555;border-color:rgba(107,107,107,0.3);}
+.pc-price-wrap{margin-top:auto;padding-top:12px;border-top:1px solid var(--border);}
+.pc-price-label{font-size:10px;letter-spacing:0.1em;color:var(--gold-dark);}
+.pc-price{font-family:'DM Serif Display',serif;font-size:20px;color:var(--gold);line-height:1;}
+.pc-orig{font-size:11px;color:var(--muted);text-decoration:line-through;margin-top:1px;}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;}
+.fb{padding:8px 16px;font-size:12px;letter-spacing:0.08em;border:1.5px solid var(--border);background:none;cursor:pointer;transition:all .2s;font-family:'Noto Sans TC',sans-serif;border-radius:2px;}
+.fb.active{background:var(--gold);color:#fff;border-color:var(--gold);}
+.fb:hover:not(.active){border-color:var(--gold);color:var(--gold-dark);}
+@media(max-width:900px){.product-grid{grid-template-columns:1fr 1fr;gap:12px;}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">有意思補給站 <span>JOYCE SUPPLY</span></a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="products.html" class="active">補給品目錄</a></li>
+    <li><a href="strategy.html">賽事攻略</a></li>
+    <li><a href="mylog.html">我的紀錄</a></li>
+    <li><a href="order.html" class="nav-cta">立即訂購</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="tag">◆ 補給品目錄</div>
+  <h1>精選補給品</h1>
+  <p>30+ 款跑者專屬補給，含團購優惠價</p>
+</div>
+
+<section>
+  <div class="filter-bar">
+    <button class="fb active" onclick="filterCat('all',this)">全部</button>
+    <button class="fb" onclick="filterCat('energy',this)">⚡ 能量膠/果膠</button>
+    <button class="fb" onclick="filterCat('electrolyte',this)">💧 電解質</button>
+    <button class="fb" onclick="filterCat('drink',this)">🥤 飲品/果凍</button>
+    <button class="fb" onclick="filterCat('capsule',this)">💊 膠囊/錠劑</button>
+    <button class="fb" onclick="filterCat('health',this)">🌿 保健營養</button>
+    <button class="fb" onclick="filterCat('other',this)">🎒 其他</button>
+  </div>
+
+  <div class="product-grid" id="product-grid">
+    <!-- 能量膠 -->
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🚀</div><div class="pc-name">太空能量膠 MAX（小金膠）</div><div class="pc-desc">1盒</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$600</div><div class="pc-orig">原價 $720</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">⚡</div><div class="pc-name">太空能量膠</div><div class="pc-desc">10包/盒</div><div class="timing-tags"><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$550</div><div class="pc-orig">原價 $680</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">⚡</div><div class="pc-name">Ultra 能量膠</div><div class="pc-desc">10包/盒</div><div class="timing-tags"><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$700</div><div class="pc-orig">原價 $880</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍇</div><div class="pc-name">能量果膠 PRO｜原味</div><div class="pc-desc">10包/盒</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$600</div><div class="pc-orig">原價 $699</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍊</div><div class="pc-name">能量果膠 PRO｜葡萄柚</div><div class="pc-desc">10包/盒</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$600</div><div class="pc-orig">原價 $699</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍬</div><div class="pc-name">FOCHEWS 能量軟糖｜多多</div><div class="timing-tags"><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price">$43</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🥭</div><div class="pc-name">FOCHEWS 能量軟糖｜芒果</div><div class="timing-tags"><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price">$43</div></div></div></div>
+    <div class="product-card cat-energy" data-cat="energy"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🧊</div><div class="pc-name">力捷凍</div><div class="timing-tags"><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$1,650</div><div class="pc-orig">原價 $2,080</div></div></div></div>
+    <!-- 電解質 -->
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍋</div><div class="pc-name">電解質飲｜檸檬萊姆（A）</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$49</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🫐</div><div class="pc-name">電解質飲｜海鹽莓果（B）</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$49</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍑</div><div class="pc-name">電解質飲｜水蜜桃（C）</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$49</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍒</div><div class="pc-name">酸櫻桃汁（O）｜櫻桃王</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$59</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🌺</div><div class="pc-name">洛神烏梅（P）高電解質</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$59</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">💙</div><div class="pc-name">電解質飲｜沁涼藍莓（Z）</div><div class="timing-tags"><span class="tt tt-d">訓練中</span></div><div class="pc-price-wrap"><div class="pc-price">洽詢</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🔋</div><div class="pc-name">電解力（G）</div><div class="pc-desc">罐裝</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price">$450</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">⚡</div><div class="pc-name">UP 電解力 Plus+（W）</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$630</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">💧</div><div class="pc-name">水動能 電解質液 PLUS 鋅</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$410</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">💊</div><div class="pc-name">電解質膠囊</div><div class="pc-desc">90顆/瓶</div><div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$600</div><div class="pc-orig">原價 $750</div></div></div></div>
+    <div class="product-card cat-electrolyte" data-cat="electrolyte"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍒</div><div class="pc-name">酸櫻桃機能飲</div><div class="pc-desc">9包/盒</div><div class="timing-tags"><span class="tt tt-a">訓練後</span><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$630</div><div class="pc-orig">原價 $750</div></div></div></div>
+    <!-- 飲品 -->
+    <div class="product-card cat-drink" data-cat="drink"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍌</div><div class="pc-name">香蕉可可（D）</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$55</div></div></div></div>
+    <div class="product-card cat-drink" data-cat="drink"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍍</div><div class="pc-name">鳳梨可可（E）</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$55</div></div></div></div>
+    <div class="product-card cat-drink" data-cat="drink"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🥭</div><div class="pc-name">芒果可可（O）</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price">$65</div></div></div></div>
+    <!-- 膠囊 -->
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">💊</div><div class="pc-name">RC 膠囊（F）</div><div class="pc-desc">罐裝</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price">$850</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🫧</div><div class="pc-name">UP O2 膠囊（I）</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-d">訓練中</span></div><div class="pc-price-wrap"><div class="pc-price">$1,150</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🛡️</div><div class="pc-name">運動保護膠囊（J）</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price">$950</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">⚡</div><div class="pc-name">牛磺酸膠囊（K）</div><div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price">$520</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">☕</div><div class="pc-name">綠茶咖啡因膠囊（L）</div><div class="timing-tags"><span class="tt tt-b">訓練前 45分</span></div><div class="pc-price-wrap"><div class="pc-price">$620</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🩸</div><div class="pc-name">微鐵膠囊（X）</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price">$780</div><div class="pc-orig">原價 $899</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">☕</div><div class="pc-name">雙速咖啡因雙層錠</div><div class="timing-tags"><span class="tt tt-b">訓練前</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$720</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🩸</div><div class="pc-name">氧元速 螯合鐵B群雙層錠</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$490</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">☀️</div><div class="pc-name">液態盾 維生素 D</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$625</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🦴</div><div class="pc-name">雙螯合 固鎂鈣</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$660</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">⚡</div><div class="pc-name">牛磺酸鎂膠囊</div><div class="pc-desc">60顆/包</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$480</div><div class="pc-orig">原價 $599</div></div></div></div>
+    <div class="product-card cat-capsule" data-cat="capsule"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍬</div><div class="pc-name">耐力甜膠囊</div><div class="pc-desc">15顆/袋</div><div class="timing-tags"><span class="tt tt-d">比賽中</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$320</div><div class="pc-orig">原價 $400</div></div></div></div>
+    <!-- 保健 -->
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🐟</div><div class="pc-name">運動魚油（H）</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price">$850</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍓</div><div class="pc-name">環原力 酵素莓果C</div><div class="timing-tags"><span class="tt tt-a">訓練後</span><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$550</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🍇</div><div class="pc-name">白藜蘆醇</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$1,720</div><div class="pc-orig">原價 $2,180</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">👁️</div><div class="pc-name">葉黃素</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$990</div><div class="pc-orig">原價 $1,380</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🧠</div><div class="pc-name">睿智膏</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$1,330</div><div class="pc-orig">原價 $1,680</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">💧</div><div class="pc-name">全潤</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$1,720</div><div class="pc-orig">原價 $2,180</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🥛</div><div class="pc-name">乳清蛋白</div><div class="pc-desc">6入/盒</div><div class="timing-tags"><span class="tt tt-a">訓練後</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$330</div><div class="pc-orig">原價 $390</div></div></div></div>
+    <div class="product-card cat-health" data-cat="health"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">🦠</div><div class="pc-name">體保生 運動益生菌</div><div class="pc-desc">30入/盒</div><div class="timing-tags"><span class="tt tt-x">日常</span></div><div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$799</div><div class="pc-orig">原價 $1,299</div></div></div></div>
+    <!-- 其他 -->
+    <div class="product-card cat-other" data-cat="other"><div class="pc-bar"></div><div class="pc-body"><div class="pc-icon">📦</div><div class="pc-name">UP 膠囊收納盒（M）</div><div class="pc-desc">比賽必備</div><div class="pc-price-wrap"><div class="pc-price">$60</div></div></div></div>
+  </div>
+
+  <div style="text-align:center;margin-top:48px;">
+    <a href="order.html" class="btn btn-gold btn-lg">立即訂購 →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">有意思補給站</div>
+    <div class="footer-links">
+      <a href="index.html">首頁</a>
+      <a href="products.html">補給品目錄</a>
+      <a href="strategy.html">賽事攻略</a>
+      <a href="mylog.html">我的紀錄</a>
+      <a href="order.html">立即訂購</a>
+    </div>
+    <div class="footer-copy">© 2025 有意思補給站. All rights reserved.</div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+function filterCat(cat, btn) {
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

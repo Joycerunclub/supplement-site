@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的補給紀錄 - 有意思補給站</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+.log-form{background:#fff;border:1px solid var(--border);padding:32px;margin-bottom:32px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg label{font-size:12px;font-weight:600;letter-spacing:0.08em;}
+.fg input,.fg select,.fg textarea{padding:11px 14px;border:1.5px solid var(--border);background:var(--off-white);font-size:13px;border-radius:2px;font-family:'Noto Sans TC',sans-serif;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--gold);}
+.feel-row{display:flex;gap:16px;margin-bottom:16px;}
+.feel-opt{font-size:13px;display:flex;align-items:center;gap:6px;cursor:pointer;}
+.feel-opt input{accent-color:var(--gold);}
+.log-table-wrap{overflow-x:auto;}
+.log-table{width:100%;border-collapse:collapse;}
+.log-table th{background:#1a1a1a;color:#fff;padding:12px 16px;font-size:12px;letter-spacing:0.08em;text-align:left;}
+.log-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
+.log-table tr:hover td{background:rgba(200,168,75,0.04);}
+.del-btn{background:none;border:1px solid rgba(184,92,56,0.3);padding:4px 10px;font-size:11px;cursor:pointer;color:#b85c38;}
+.del-btn:hover{background:rgba(184,92,56,0.08);}
+.feel-good{display:inline-block;font-size:11px;padding:2px 8px;background:rgba(76,175,80,0.1);color:#2e7d32;}
+.feel-ok{display:inline-block;font-size:11px;padding:2px 8px;background:rgba(200,168,75,0.1);color:#8b6f20;}
+.feel-bad{display:inline-block;font-size:11px;padding:2px 8px;background:rgba(184,92,56,0.1);color:#b85c38;}
+.empty-log{text-align:center;padding:48px;color:var(--muted);font-size:14px;}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr;}.log-table td,.log-table th{padding:10px 12px;font-size:12px;}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">有意思補給站 <span>JOYCE SUPPLY</span></a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="products.html">補給品目錄</a></li>
+    <li><a href="strategy.html">賽事攻略</a></li>
+    <li><a href="mylog.html" class="active">我的紀錄</a></li>
+    <li><a href="order.html" class="nav-cta">立即訂購</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="tag">◆ 我的補給紀錄</div>
+  <h1>記錄你的補給習慣</h1>
+  <p>紀錄存在你的瀏覽器，只有你自己看得到 🧡</p>
+</div>
+
+<section>
+  <!-- 新增紀錄 -->
+  <div class="log-form">
+    <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;margin-bottom:20px;">➕ 新增補給紀錄</h3>
+    <div class="form-grid">
+      <div class="fg"><label>日期</label><input type="date" id="log-date"></div>
+      <div class="fg">
+        <label>訓練類型</label>
+        <select id="log-type">
+          <option>輕鬆跑</option><option>節奏跑</option><option>間歇訓練</option>
+          <option>長跑</option><option>肌力訓練</option>
+          <option>比賽（10K）</option><option>比賽（半馬）</option><option>比賽（全馬）</option>
+        </select>
+      </div>
+      <div class="fg"><label>距離（km）</label><input type="number" id="log-dist" placeholder="例：10" step="0.1"></div>
+      <div class="fg"><label>訓練前補給</label><input type="text" id="log-before" placeholder="例：咖啡因膠囊、香蕉可可"></div>
+      <div class="fg"><label>訓練中補給</label><input type="text" id="log-during" placeholder="例：太空能量膠、電解質飲"></div>
+      <div class="fg"><label>訓練後補給</label><input type="text" id="log-after" placeholder="例：乳清蛋白、酸櫻桃機能飲"></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;display:block;margin-bottom:8px;">身體感受</label>
+      <div class="feel-row">
+        <label class="feel-opt"><input type="radio" name="feel" value="good"> 😊 很好</label>
+        <label class="feel-opt"><input type="radio" name="feel" value="ok" checked> 😐 普通</label>
+        <label class="feel-opt"><input type="radio" name="feel" value="bad"> 😣 不好</label>
+      </div>
+    </div>
+    <div class="fg" style="margin-bottom:20px;">
+      <label>備註 / 心得</label>
+      <textarea id="log-note" rows="2" placeholder="補給效果如何？需要調整的地方..."></textarea>
+    </div>
+    <button class="btn btn-gold" onclick="addLog()">儲存紀錄</button>
+  </div>
+
+  <!-- 紀錄列表 -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+    <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;">📋 補給紀錄歷史</h3>
+    <button onclick="clearAll()" style="font-size:12px;color:#b85c38;background:none;border:1px solid rgba(184,92,56,0.3);padding:6px 14px;cursor:pointer;">清除全部</button>
+  </div>
+  <div class="log-table-wrap">
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th>日期</th><th>類型</th><th>距離</th>
+          <th>訓練前</th><th>訓練中</th><th>訓練後</th>
+          <th>感受</th><th>備註</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="log-tbody"></tbody>
+    </table>
+    <div id="log-empty" class="empty-log">還沒有補給紀錄，新增第一筆吧！🧡</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">有意思補給站</div>
+    <div class="footer-links">
+      <a href="index.html">首頁</a>
+      <a href="products.html">補給品目錄</a>
+      <a href="strategy.html">賽事攻略</a>
+      <a href="mylog.html">我的紀錄</a>
+      <a href="order.html">立即訂購</a>
+    </div>
+    <div class="footer-copy">© 2025 有意思補給站. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const KEY = 'joyce_supply_logs';
+function getLogs(){ try{ return JSON.parse(localStorage.getItem(KEY))||[]; }catch{ return []; } }
+function saveLogs(l){ localStorage.setItem(KEY, JSON.stringify(l)); }
+
+function renderLogs(){
+  const logs = getLogs();
+  const tbody = document.getElementById('log-tbody');
+  const empty = document.getElementById('log-empty');
+  tbody.innerHTML = '';
+  if(logs.length===0){ empty.style.display=''; return; }
+  empty.style.display='none';
+  const feelMap = {
+    good:'<span class="feel-good">😊 很好</span>',
+    ok:'<span class="feel-ok">😐 普通</span>',
+    bad:'<span class="feel-bad">😣 不好</span>'
+  };
+  [...logs].reverse().forEach((log,i)=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${log.date}</td>
+      <td>${log.type}</td>
+      <td>${log.dist?log.dist+' km':'—'}</td>
+      <td style="max-width:130px;font-size:12px;">${log.before||'—'}</td>
+      <td style="max-width:130px;font-size:12px;">${log.during||'—'}</td>
+      <td style="max-width:130px;font-size:12px;">${log.after||'—'}</td>
+      <td>${feelMap[log.feel]||''}</td>
+      <td style="max-width:120px;font-size:12px;">${log.note||'—'}</td>
+      <td><button class="del-btn" onclick="delLog(${logs.length-1-i})">刪除</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function addLog(){
+  const date = document.getElementById('log-date').value;
+  if(!date){ alert('請選擇日期'); return; }
+  const log = {
+    date, type: document.getElementById('log-type').value,
+    dist: document.getElementById('log-dist').value,
+    before: document.getElementById('log-before').value,
+    during: document.getElementById('log-during').value,
+    after: document.getElementById('log-after').value,
+    feel: document.querySelector('input[name="feel"]:checked')?.value||'ok',
+    note: document.getElementById('log-note').value
+  };
+  const logs = getLogs(); logs.push(log); saveLogs(logs); renderLogs();
+  ['log-before','log-during','log-after','log-dist','log-note'].forEach(id=>document.getElementById(id).value='');
+}
+
+function delLog(idx){
+  if(!confirm('確定刪除？')) return;
+  const logs = getLogs(); logs.splice(idx,1); saveLogs(logs); renderLogs();
+}
+function clearAll(){
+  if(!confirm('確定清除全部紀錄？')) return;
+  localStorage.removeItem(KEY); renderLogs();
+}
+
+document.getElementById('log-date').value = new Date().toISOString().split('T')[0];
+renderLogs();
+</script>
+</body>
+</html>

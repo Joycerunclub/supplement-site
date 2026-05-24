@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有意思補給站 - 跑者的最佳補給夥伴</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+.hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:64px; }
+.hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 60px 80px 80px; }
+.hero-tag { font-size:11px; letter-spacing:0.25em; color:var(--gold); text-transform:uppercase; border-left:2px solid var(--gold); padding-left:12px; margin-bottom:28px; }
+.hero-title { font-family:'Noto Serif TC',serif; font-size:clamp(40px,5vw,64px); font-weight:900; line-height:1.15; color:var(--black); margin-bottom:20px; }
+.hero-title em { font-style:normal; color:var(--gold-dark); }
+.hero-sub { font-size:15px; line-height:2; color:var(--muted); max-width:420px; margin-bottom:40px; }
+.hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+.hero-stats { display:flex; gap:36px; margin-top:48px; padding-top:36px; border-top:1px solid var(--border); }
+.hs-num { font-family:'DM Serif Display',serif; font-size:32px; color:var(--gold); line-height:1; }
+.hs-label { font-size:11px; color:var(--muted); margin-top:4px; letter-spacing:0.06em; }
+.hero-right { background:linear-gradient(160deg,var(--gold) 0%,var(--gold-dark) 100%); display:flex; align-items:center; justify-content:center; position:relative; }
+.hero-visual-text { font-family:'Noto Serif TC',serif; font-size:100px; color:rgba(255,255,255,0.1); font-weight:900; text-align:center; user-select:none; }
+.hero-badge { position:absolute; bottom:40px; left:40px; background:rgba(250,248,243,0.95); padding:16px 20px; border-left:3px solid var(--gold); }
+.hero-badge p { font-family:'Noto Serif TC',serif; font-size:13px; line-height:1.7; }
+.marquee-wrap { overflow:hidden; background:var(--dark); padding:13px 0; }
+.marquee-track { display:flex; gap:48px; width:max-content; animation:marquee 22s linear infinite; }
+.marquee-track span { font-size:12px; letter-spacing:0.2em; color:rgba(255,255,255,0.5); text-transform:uppercase; }
+.marquee-track strong { color:var(--gold); }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.feature-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:0; background:var(--cream); }
+.fs-item { padding:40px 36px; border-right:1px solid var(--border); text-align:center; }
+.fs-item:last-child { border-right:none; }
+.fs-icon { font-size:40px; margin-bottom:16px; }
+.fs-title { font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; margin-bottom:8px; }
+.fs-desc { font-size:13px; color:var(--muted); line-height:1.8; }
+.featured-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+@media(max-width:900px){
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-left { padding:60px 20px; }
+  .feature-strip { grid-template-columns:1fr; }
+  .fs-item { border-right:none; border-bottom:1px solid var(--border); }
+  .featured-grid { grid-template-columns:1fr 1fr; gap:12px; }
+  .hero-stats { flex-wrap:wrap; gap:20px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">有意思補給站 <span>JOYCE SUPPLY</span></a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active">首頁</a></li>
+    <li><a href="products.html">補給品目錄</a></li>
+    <li><a href="strategy.html">賽事攻略</a></li>
+    <li><a href="mylog.html">我的紀錄</a></li>
+    <li><a href="order.html" class="nav-cta">立即訂購</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">有意思跑步訓練班 × 專屬補給</div>
+    <h1 class="hero-title">吃對補給<br><em>跑出好成績</em></h1>
+    <p class="hero-sub">精選跑者補給品，從訓練前到賽後恢復，全程陪你突破極限。團購優惠，只有這裡有。</p>
+    <div class="hero-btns">
+      <a href="products.html" class="btn btn-gold btn-lg">查看補給品目錄</a>
+      <a href="strategy.html" class="btn btn-outline btn-lg">賽事補給攻略</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hs-num">30+</div><div class="hs-label">精選補給品</div></div>
+      <div><div class="hs-num">4</div><div class="hs-label">賽事攻略</div></div>
+      <div><div class="hs-num">🧡</div><div class="hs-label">有意思獨家</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual-text">補給</div>
+    <div class="hero-badge">
+      <p>📦 團購優惠<br>🚀 賽事攻略<br>📝 個人紀錄</p>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>能量膠</span><strong>✦</strong><span>電解質</span><strong>✦</strong>
+    <span>咖啡因膠囊</span><strong>✦</strong><span>乳清蛋白</span><strong>✦</strong>
+    <span>BCAA</span><strong>✦</strong><span>魚油</span><strong>✦</strong>
+    <span>益生菌</span><strong>✦</strong><span>賽事攻略</span><strong>✦</strong>
+    <span>能量膠</span><strong>✦</strong><span>電解質</span><strong>✦</strong>
+    <span>咖啡因膠囊</span><strong>✦</strong><span>乳清蛋白</span><strong>✦</strong>
+    <span>BCAA</span><strong>✦</strong><span>魚油</span><strong>✦</strong>
+    <span>益生菌</span><strong>✦</strong><span>賽事攻略</span><strong>✦</strong>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="feature-strip">
+  <div class="fs-item reveal">
+    <div class="fs-icon">📦</div>
+    <div class="fs-title">精選補給品</div>
+    <div class="fs-desc">30+ 款跑者專屬補給品，含電解質、能量膠、膠囊、保健品，全部精選推薦</div>
+  </div>
+  <div class="fs-item reveal">
+    <div class="fs-icon">🏅</div>
+    <div class="fs-title">賽事補給攻略</div>
+    <div class="fs-desc">10K / 半馬 / 全馬各距離補給策略，告訴你什麼時候吃什麼、吃多少</div>
+  </div>
+  <div class="fs-item reveal">
+    <div class="fs-icon">💰</div>
+    <div class="fs-title">有意思獨家團購</div>
+    <div class="fs-desc">比市售便宜，專屬學員優惠價，轉帳即可訂購，簡單方便</div>
+  </div>
+</div>
+
+<!-- 精選推薦 -->
+<section style="background:var(--off-white);">
+  <div class="section-tag">精選推薦</div>
+  <h2 class="section-title">最受學員歡迎</h2>
+  <p class="section-sub">這幾款是最多學員回購的補給品</p>
+  <div class="featured-grid reveal">
+    <div class="product-card">
+      <div class="pc-bar"></div>
+      <div class="pc-body">
+        <div class="pc-icon">🚀</div>
+        <div class="pc-name">太空能量膠 MAX（小金膠）</div>
+        <div class="pc-desc">1盒</div>
+        <div class="timing-tags"><span class="tt tt-b">訓練前</span><span class="tt tt-d">比賽中</span></div>
+        <div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$600</div><div class="pc-orig">原價 $720</div></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="pc-bar"></div>
+      <div class="pc-body">
+        <div class="pc-icon">🌺</div>
+        <div class="pc-name">洛神烏梅電解質（P）</div>
+        <div class="pc-desc">高電解質配方</div>
+        <div class="timing-tags"><span class="tt tt-d">訓練中</span><span class="tt tt-a">訓練後</span></div>
+        <div class="pc-price-wrap"><div class="pc-price">$59</div></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="pc-bar"></div>
+      <div class="pc-body">
+        <div class="pc-icon">☕</div>
+        <div class="pc-name">雙速咖啡因雙層錠</div>
+        <div class="pc-desc">緩釋+即時雙效</div>
+        <div class="timing-tags"><span class="tt tt-b">訓練前 45分</span></div>
+        <div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$720</div></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="pc-bar"></div>
+      <div class="pc-body">
+        <div class="pc-icon">🍒</div>
+        <div class="pc-name">酸櫻桃機能飲</div>
+        <div class="pc-desc">9包/盒</div>
+        <div class="timing-tags"><span class="tt tt-a">訓練後</span><span class="tt tt-x">日常</span></div>
+        <div class="pc-price-wrap"><div class="pc-price-label">團購價</div><div class="pc-price">$630</div><div class="pc-orig">原價 $750</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="products.html" class="btn btn-gold">查看所有補給品 →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--dark);text-align:center;">
+  <div class="section-tag" style="justify-content:center;color:var(--gold);">立即訂購</div>
+  <h2 class="section-title" style="color:#fff;">準備好補給了嗎？</h2>
+  <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:36px;">選好品項，填寫資料，轉帳後我們幫你備好補給 🧡</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="order.html" class="btn btn-gold btn-lg">立即訂購</a>
+    <a href="strategy.html" class="btn btn-outline btn-lg">先看賽事攻略</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">有意思補給站</div>
+    <div class="footer-links">
+      <a href="index.html">首頁</a>
+      <a href="products.html">補給品目錄</a>
+      <a href="strategy.html">賽事攻略</a>
+      <a href="mylog.html">我的紀錄</a>
+      <a href="order.html">立即訂購</a>
+    </div>
+    <div class="footer-copy">© 2025 有意思補給站. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

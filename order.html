@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立即訂購 - 有意思補給站</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">有意思補給站 <span>JOYCE SUPPLY</span></a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="products.html">補給品目錄</a></li>
+    <li><a href="strategy.html">賽事攻略</a></li>
+    <li><a href="mylog.html">我的紀錄</a></li>
+    <li><a href="order.html" class="nav-cta">立即訂購</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="tag">◆ 訂購</div>
+  <h1>立即訂購補給品</h1>
+  <p>選擇品項 → 填寫資料 → 轉帳完成 🧡</p>
+</div>
+
+<section>
+  <div class="order-layout">
+
+    <!-- 左：選產品 -->
+    <div class="order-products">
+
+      <div class="order-cat-title">⚡ 能量膠 / 果膠</div>
+      <div class="order-item" data-name="太空能量膠 MAX（小金膠）" data-price="600" data-orig="720">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🚀</div>
+        <div class="oi-info"><div class="oi-name">太空能量膠 MAX（小金膠）</div><div class="oi-sub">1盒</div></div>
+        <div><div class="oi-price">$600</div><div class="oi-orig">原$720</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="太空能量膠" data-price="550" data-orig="680">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">⚡</div>
+        <div class="oi-info"><div class="oi-name">太空能量膠</div><div class="oi-sub">10包/盒</div></div>
+        <div><div class="oi-price">$550</div><div class="oi-orig">原$680</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="Ultra 能量膠" data-price="700" data-orig="880">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">⚡</div>
+        <div class="oi-info"><div class="oi-name">Ultra 能量膠</div><div class="oi-sub">10包/盒</div></div>
+        <div><div class="oi-price">$700</div><div class="oi-orig">原$880</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="能量果膠 PRO 原味" data-price="600" data-orig="699">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍇</div>
+        <div class="oi-info"><div class="oi-name">能量果膠 PRO｜原味</div><div class="oi-sub">10包/盒</div></div>
+        <div><div class="oi-price">$600</div><div class="oi-orig">原$699</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="能量果膠 PRO 葡萄柚" data-price="600" data-orig="699">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍊</div>
+        <div class="oi-info"><div class="oi-name">能量果膠 PRO｜葡萄柚</div><div class="oi-sub">10包/盒</div></div>
+        <div><div class="oi-price">$600</div><div class="oi-orig">原$699</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="FOCHEWS 能量軟糖 多多" data-price="43">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍬</div>
+        <div class="oi-info"><div class="oi-name">FOCHEWS 能量軟糖｜多多</div></div>
+        <div><div class="oi-price">$43</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="FOCHEWS 能量軟糖 芒果" data-price="43">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🥭</div>
+        <div class="oi-info"><div class="oi-name">FOCHEWS 能量軟糖｜芒果</div></div>
+        <div><div class="oi-price">$43</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="力捷凍" data-price="1650" data-orig="2080">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🧊</div>
+        <div class="oi-info"><div class="oi-name">力捷凍</div></div>
+        <div><div class="oi-price">$1,650</div><div class="oi-orig">原$2,080</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+
+      <div class="order-cat-title">💧 電解質</div>
+      <div class="order-item" data-name="電解質飲 檸檬萊姆(A)" data-price="49">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍋</div>
+        <div class="oi-info"><div class="oi-name">電解質飲｜檸檬萊姆（A）</div></div>
+        <div><div class="oi-price">$49</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="電解質飲 海鹽莓果(B)" data-price="49">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🫐</div>
+        <div class="oi-info"><div class="oi-name">電解質飲｜海鹽莓果（B）</div></div>
+        <div><div class="oi-price">$49</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="電解質飲 水蜜桃(C)" data-price="49">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍑</div>
+        <div class="oi-info"><div class="oi-name">電解質飲｜水蜜桃（C）</div></div>
+        <div><div class="oi-price">$49</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="酸櫻桃汁 櫻桃王(O)" data-price="59">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍒</div>
+        <div class="oi-info"><div class="oi-name">酸櫻桃汁（O）｜櫻桃王</div></div>
+        <div><div class="oi-price">$59</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="洛神烏梅 高電解質(P)" data-price="59">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🌺</div>
+        <div class="oi-info"><div class="oi-name">洛神烏梅（P）高電解質</div></div>
+        <div><div class="oi-price">$59</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="電解力罐(G)" data-price="450">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🔋</div>
+        <div class="oi-info"><div class="oi-name">電解力（G）</div><div class="oi-sub">罐裝</div></div>
+        <div><div class="oi-price">$450</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="UP 電解力 Plus+(W)" data-price="630">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">⚡</div>
+        <div class="oi-info"><div class="oi-name">UP 電解力 Plus+（W）</div></div>
+        <div><div class="oi-price">$630</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="水動能 電解質液 PLUS 鋅" data-price="410">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">💧</div>
+        <div class="oi-info"><div class="oi-name">水動能 電解質液 PLUS 鋅</div></div>
+        <div><div class="oi-price">$410</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="電解質膠囊 90顆" data-price="600" data-orig="750">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">💊</div>
+        <div class="oi-info"><div class="oi-name">電解質膠囊</div><div class="oi-sub">90顆/瓶</div></div>
+        <div><div class="oi-price">$600</div><div class="oi-orig">原$750</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="酸櫻桃機能飲 9包" data-price="630" data-orig="750">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍒</div>
+        <div class="oi-info"><div class="oi-name">酸櫻桃機能飲</div><div class="oi-sub">9包/盒</div></div>
+        <div><div class="oi-price">$630</div><div class="oi-orig">原$750</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+
+      <div class="order-cat-title">🥤 飲品 / 果凍</div>
+      <div class="order-item" data-name="香蕉可可(D)" data-price="55">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍌</div>
+        <div class="oi-info"><div class="oi-name">香蕉可可（D）</div></div>
+        <div><div class="oi-price">$55</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="鳳梨可可(E)" data-price="55">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍍</div>
+        <div class="oi-info"><div class="oi-name">鳳梨可可（E）</div></div>
+        <div><div class="oi-price">$55</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="芒果可可(O)" data-price="65">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🥭</div>
+        <div class="oi-info"><div class="oi-name">芒果可可（O）</div></div>
+        <div><div class="oi-price">$65</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+
+      <div class="order-cat-title">💊 膠囊 / 錠劑</div>
+      <div class="order-item" data-name="RC 膠囊罐(F)" data-price="850">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">💊</div>
+        <div class="oi-info"><div class="oi-name">RC 膠囊（F）</div><div class="oi-sub">罐裝</div></div>
+        <div><div class="oi-price">$850</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="UP O2 膠囊(I)" data-price="1150">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🫧</div>
+        <div class="oi-info"><div class="oi-name">UP O2 膠囊（I）</div></div>
+        <div><div class="oi-price">$1,150</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="運動保護膠囊(J)" data-price="950">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🛡️</div>
+        <div class="oi-info"><div class="oi-name">運動保護膠囊（J）</div></div>
+        <div><div class="oi-price">$950</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="牛磺酸膠囊(K)" data-price="520">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">⚡</div>
+        <div class="oi-info"><div class="oi-name">牛磺酸膠囊（K）</div></div>
+        <div><div class="oi-price">$520</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="綠茶咖啡因膠囊(L)" data-price="620">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">☕</div>
+        <div class="oi-info"><div class="oi-name">綠茶咖啡因膠囊（L）</div></div>
+        <div><div class="oi-price">$620</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="微鐵膠囊(X)" data-price="780" data-orig="899">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🩸</div>
+        <div class="oi-info"><div class="oi-name">微鐵膠囊（X）</div></div>
+        <div><div class="oi-price">$780</div><div class="oi-orig">原$899</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="雙速咖啡因雙層錠" data-price="720">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">☕</div>
+        <div class="oi-info"><div class="oi-name">雙速咖啡因雙層錠</div></div>
+        <div><div class="oi-price">$720</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="氧元速 螯合鐵B群雙層錠" data-price="490">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🩸</div>
+        <div class="oi-info"><div class="oi-name">氧元速 螯合鐵B群雙層錠</div></div>
+        <div><div class="oi-price">$490</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="液態盾 維生素D" data-price="625">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">☀️</div>
+        <div class="oi-info"><div class="oi-name">液態盾 維生素 D</div></div>
+        <div><div class="oi-price">$625</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="雙螯合 固鎂鈣" data-price="660">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🦴</div>
+        <div class="oi-info"><div class="oi-name">雙螯合 固鎂鈣</div></div>
+        <div><div class="oi-price">$660</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="牛磺酸鎂膠囊 60顆" data-price="480" data-orig="599">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">⚡</div>
+        <div class="oi-info"><div class="oi-name">牛磺酸鎂膠囊</div><div class="oi-sub">60顆/包</div></div>
+        <div><div class="oi-price">$480</div><div class="oi-orig">原$599</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="耐力甜膠囊 15顆" data-price="320" data-orig="400">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍬</div>
+        <div class="oi-info"><div class="oi-name">耐力甜膠囊</div><div class="oi-sub">15顆/袋</div></div>
+        <div><div class="oi-price">$320</div><div class="oi-orig">原$400</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+
+      <div class="order-cat-title">🌿 保健營養</div>
+      <div class="order-item" data-name="運動魚油(H)" data-price="850">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🐟</div>
+        <div class="oi-info"><div class="oi-name">運動魚油（H）</div></div>
+        <div><div class="oi-price">$850</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="環原力 酵素莓果C" data-price="550">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍓</div>
+        <div class="oi-info"><div class="oi-name">環原力 酵素莓果C</div></div>
+        <div><div class="oi-price">$550</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="白藜蘆醇" data-price="1720" data-orig="2180">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🍇</div>
+        <div class="oi-info"><div class="oi-name">白藜蘆醇</div></div>
+        <div><div class="oi-price">$1,720</div><div class="oi-orig">原$2,180</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="葉黃素" data-price="990" data-orig="1380">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">👁️</div>
+        <div class="oi-info"><div class="oi-name">葉黃素</div></div>
+        <div><div class="oi-price">$990</div><div class="oi-orig">原$1,380</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="睿智膏" data-price="1330" data-orig="1680">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🧠</div>
+        <div class="oi-info"><div class="oi-name">睿智膏</div></div>
+        <div><div class="oi-price">$1,330</div><div class="oi-orig">原$1,680</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="全潤" data-price="1720" data-orig="2180">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">💧</div>
+        <div class="oi-info"><div class="oi-name">全潤</div></div>
+        <div><div class="oi-price">$1,720</div><div class="oi-orig">原$2,180</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="乳清蛋白 6入" data-price="330" data-orig="390">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🥛</div>
+        <div class="oi-info"><div class="oi-name">乳清蛋白</div><div class="oi-sub">6入/盒</div></div>
+        <div><div class="oi-price">$330</div><div class="oi-orig">原$390</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-name="體保生 運動益生菌 30入" data-price="799" data-orig="1299">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">🦠</div>
+        <div class="oi-info"><div class="oi-name">體保生 運動益生菌</div><div class="oi-sub">30入/盒</div></div>
+        <div><div class="oi-price">$799</div><div class="oi-orig">原$1,299</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+
+      <div class="order-cat-title">🎒 其他</div>
+      <div class="order-item" data-name="UP 膠囊收納盒(M)" data-price="60">
+        <input type="checkbox" class="oi-check" onchange="updateOrder(this)">
+        <div class="oi-icon">📦</div>
+        <div class="oi-info"><div class="oi-name">UP 膠囊收納盒（M）</div><div class="oi-sub">比賽必備</div></div>
+        <div><div class="oi-price">$60</div></div>
+        <div class="oi-qty"><button onclick="changeQty(this,-1)">−</button><span>1</span><button onclick="changeQty(this,1)">+</button></div>
+      </div>
+
+    </div>
+
+    <!-- 右：訂單摘要 + 表單 -->
+    <div class="order-summary">
+      <div class="os-header">
+        <h3>🛒 訂單摘要</h3>
+      </div>
+      <div class="os-body">
+        <div class="os-items" id="os-items">
+          <div class="os-empty" id="os-empty">尚未選擇任何商品</div>
+        </div>
+        <div class="os-total">
+          <span>合計</span>
+          <span class="total-num" id="os-total">$0</span>
+        </div>
+
+        <div class="payment-info">
+          <strong>付款方式：銀行轉帳</strong><br>
+          下單後我們將提供帳戶資訊<br>
+          確認入帳後安排出貨 🧡
+        </div>
+
+        <div class="os-form">
+          <div class="form-group">
+            <label>姓名 *</label>
+            <input type="text" id="f-name" placeholder="你的姓名" required>
+          </div>
+          <div class="form-group">
+            <label>電話 *</label>
+            <input type="tel" id="f-phone" placeholder="0912-345-678" required>
+          </div>
+          <div class="form-group">
+            <label>LINE ID</label>
+            <input type="text" id="f-line" placeholder="你的 LINE ID">
+          </div>
+          <div class="form-group">
+            <label>配送地址 *</label>
+            <input type="text" id="f-address" placeholder="縣市 + 地址" required>
+          </div>
+          <div class="form-group">
+            <label>備註</label>
+            <textarea id="f-note" rows="2" placeholder="特殊需求或備注..."></textarea>
+          </div>
+          <button class="btn btn-gold" style="width:100%;font-size:15px;padding:16px;" onclick="submitOrder()">
+            送出訂單 →
+          </button>
+          <p style="font-size:11px;color:var(--muted);margin-top:10px;text-align:center;">送出後我們會透過 LINE 或電話確認訂單</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">有意思補給站</div>
+    <div class="footer-links">
+      <a href="index.html">首頁</a>
+      <a href="products.html">補給品目錄</a>
+      <a href="strategy.html">賽事攻略</a>
+      <a href="order.html">立即訂購</a>
+    </div>
+    <div class="footer-copy">© 2025 有意思補給站. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ── Google Apps Script URL（設定好後填入這裡）──
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwot71iH4hyY0zWKUhx9bnROyqWsgMQbH2nCCFjPmFCcgzUHWpjVjHqMYdiiHiW4W98/exec';
+
+// ── 數量控制 ──
+function changeQty(btn, delta) {
+  const qtyWrap = btn.parentElement;
+  const span = qtyWrap.querySelector('span');
+  let qty = parseInt(span.textContent) + delta;
+  if (qty < 1) qty = 1;
+  span.textContent = qty;
+  const item = btn.closest('.order-item');
+  if (item.querySelector('.oi-check').checked) updateOrder(item.querySelector('.oi-check'));
+}
+
+// ── 更新訂單摘要 ──
+function updateOrder(checkbox) {
+  const item = checkbox.closest('.order-item');
+  item.classList.toggle('selected', checkbox.checked);
+  renderSummary();
+}
+
+function getSelected() {
+  const items = [];
+  document.querySelectorAll('.order-item').forEach(item => {
+    const cb = item.querySelector('.oi-check');
+    if (cb.checked) {
+      const qty = parseInt(item.querySelector('.oi-qty span').textContent);
+      items.push({
+        name: item.dataset.name,
+        price: parseInt(item.dataset.price),
+        qty
+      });
+    }
+  });
+  return items;
+}
+
+function renderSummary() {
+  const items = getSelected();
+  const container = document.getElementById('os-items');
+  const empty = document.getElementById('os-empty');
+  let total = 0;
+  if (items.length === 0) {
+    container.innerHTML = '';
+    container.appendChild(empty);
+    empty.style.display = '';
+  } else {
+    empty.style.display = 'none';
+    container.innerHTML = '';
+    items.forEach(it => {
+      const sub = it.price * it.qty;
+      total += sub;
+      const row = document.createElement('div');
+      row.className = 'os-item';
+      row.innerHTML = `<span>${it.name} ×${it.qty}</span><span>$${sub.toLocaleString()}</span>`;
+      container.appendChild(row);
+    });
+  }
+  items.forEach(it => total += 0); // already summed
+  total = items.reduce((s,i) => s + i.price * i.qty, 0);
+  document.getElementById('os-total').textContent = '$' + total.toLocaleString();
+}
+
+// ── 送出訂單 ──
+async function submitOrder() {
+  const items = getSelected();
+  if (items.length === 0) { alert('請至少選擇一項商品'); return; }
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const address = document.getElementById('f-address').value.trim();
+  if (!name || !phone || !address) { alert('請填寫姓名、電話和地址'); return; }
+
+  const total = items.reduce((s,i) => s + i.price * i.qty, 0);
+  const orderText = items.map(i => `${i.name} ×${i.qty} $${i.price*i.qty}`).join('\n');
+  const now = new Date().toLocaleString('zh-TW');
+
+  const payload = {
+    timestamp: now,
+    name,
+    phone,
+    line: document.getElementById('f-line').value,
+    address,
+    items: orderText,
+    total: '$' + total.toLocaleString(),
+    note: document.getElementById('f-note').value
+  };
+
+  // 送到 Google Sheets
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch(e) { console.log('送出訂單', e); }
+
+  // 跳轉到感謝頁
+  localStorage.setItem('last_order', JSON.stringify({ name, items: orderText, total: '$' + total.toLocaleString() }));
+  window.location.href = 'thankyou.html';
+}
+</script>
+</body>
+</html>
